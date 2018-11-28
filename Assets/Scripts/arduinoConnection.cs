@@ -9,6 +9,7 @@ public class arduinoConnection : MonoBehaviour
 
     SerialPort stream = new SerialPort("COM3", 9600);
     int button = 0;
+    public GameObject interact;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class arduinoConnection : MonoBehaviour
     {
         string value = stream.ReadLine();
         button = int.Parse(value);
-        Debug.Log(button);
+        interact.SendMessage("activate", button);
+        
     }
 }
