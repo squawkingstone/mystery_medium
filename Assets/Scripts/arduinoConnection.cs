@@ -13,6 +13,7 @@ public class arduinoConnection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        System.IO.Ports.SerialPort.GetPortNames();
         stream.Open();
     }
 
@@ -20,8 +21,11 @@ public class arduinoConnection : MonoBehaviour
     void Update()
     {
         string value = stream.ReadLine();
+        Debug.Log(value);
+        /*
         button = int.Parse(value);
         interact.SendMessage("activate", button);
+        */
         
     }
 }

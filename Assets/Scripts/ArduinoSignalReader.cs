@@ -5,10 +5,10 @@ using System.IO.Ports;
 
 public class ArduinoSignalReader : MonoBehaviour {
 
-	public static SerialPort port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One);      
+	public static SerialPort port;      
      
     void Start () 
-    {
+    {  
     	OpenDeviceConnection();
     }
  
@@ -18,7 +18,8 @@ public class ArduinoSignalReader : MonoBehaviour {
     }
      
     void OpenDeviceConnection()
-	{
+	{   
+        port = new SerialPort("COM3", 9600);
 		port.Open();
 	}
  
