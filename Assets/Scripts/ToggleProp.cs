@@ -35,4 +35,10 @@ public class ToggleProp : MonoBehaviour
 		obj1.SetActive(!t);
 		if (obj2 != null) obj2.SetActive(t);
 	}
+
+	public void SetRevealed(bool revealed)
+	{
+		obj1.SetActive(!revealed);
+		if (obj2 != null) obj2.SetActive(revealed);
+	}
 }
