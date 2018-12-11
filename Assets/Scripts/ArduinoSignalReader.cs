@@ -28,12 +28,14 @@ public class ArduinoSignalReader : MonoBehaviour {
     bool updateNeeded;
     string deviceMessage;
     Mutex mutex = new Mutex();
+    Thread reader;
 
     void Start () 
     { 
         port = new SerialPort("COM3", 9600);
         port.Open();
-        port.DataReceived += OnReceiveData;
+        reader = new Thread(new ThreadStart(ReadFromDevice));
+        reader.Start();
         updateNeeded = false; 
     }
  
@@ -50,7 +52,7 @@ public class ArduinoSignalReader : MonoBehaviour {
  
     void OnApplicationQuit() 
     { 
-        StopAllCoroutines();
+        reader.Abort();
         port.Close(); 
     }
 
@@ -59,27 +61,17 @@ public class ArduinoSignalReader : MonoBehaviour {
         Debug.Log(deviceMessage);
     }
 
-    // private IEnumerator ReadFromDevice()
-    // {
-    //     string temp;
-    //     while (true)
-    //     {
-    //         temp = port.ReadLine();
-    //         mutex.WaitOne();
-    //         deviceMessage = temp;
-    //         updateNeeded = true;
-    //         mutex.ReleaseMutex();
-    //         yield return null;
-    //     }
-    // }
-
-    private static void OnReceiveData(object sender, SerialDataReceivedEventArgs e)
+    void ReadFromDevice()
     {
-        SerialPort sp = (SerialPort)sender;
-        const int size = 256;
-        char[] buf = new char[size];
-        sp.Read(buf, 0, size);
-        Debug.Log(buf);
+        string temp;
+        while (true)
+        {
+            temp = port.ReadLine();
+            mutex.WaitOne();
+            deviceMessage = temp;
+            updateNeeded = true;
+            mutex.ReleaseMutex();
+        }
     }
 
 }
