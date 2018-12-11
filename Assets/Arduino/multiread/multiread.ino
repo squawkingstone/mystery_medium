@@ -65,10 +65,12 @@ void setup() {
   /* looking for MFRC522 readers */
   for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
     mfrc522[reader].PCD_Init(ssPins[reader], RST_PIN);
+    /*
     Serial.print(F("Reader "));
     Serial.print(reader);
     Serial.print(F(": "));
     mfrc522[reader].PCD_DumpVersionToSerial();
+    */
     readed[reader] = false;
     change[reader] = false;
     uid[reader] = String();
@@ -93,22 +95,26 @@ void loop() {
           && mfrc522[reader].PICC_ReadCardSerial()){
         if(!readed[reader]){
           uid[reader] += arrayToString(mfrc522[reader].uid.uidByte, mfrc522[reader].uid.size);
+          /*
           Serial.print(F("Reader "));
           Serial.print(reader);
           Serial.print(F(": Card UID:"));
           dump_byte_array(mfrc522[reader].uid.uidByte, mfrc522[reader].uid.size);
           Serial.print(F(" Being read"));
           Serial.println();
+          */
           readed[reader] = true;
           printCards();
           }
         }else{
           if(readed[reader]){
             uid[reader] = String();
+            /*
             Serial.print(F("Reader "));
             Serial.print(reader);
             Serial.print(F(" not being read"));
             Serial.println();
+            */
             readed[reader] = false;
             printCards();
             }
@@ -121,13 +127,18 @@ void loop() {
    prints all cards that are actively being read atm
 */
 void printCards(){
-  Serial.println("Cards that are being read: ");
   for(uint8_t i = 0; i < NR_OF_READERS; i++){
-    Serial.print(F("Reader "));
-    Serial.print(i);
-    Serial.print(F(" reading: "));
-    Serial.println(String(uid[i]));
+    if(String(uid[i]).length() > 0){
+      Serial.print(String(uid[i]));
+      }else{
+       Serial.print(F("0")); 
+      }
+    
+    if(i < NR_OF_READERS - 1){
+      Serial.print(F(","));
+      }
     }
+    Serial.println();
   }
 
 /*
@@ -146,5 +157,6 @@ String arrayToString(byte * buffer, byte bufferSize){
     card = card + String(buffer[i] < 0x10 ? " 0" : " ");
     card = card + String(buffer[i], HEX);
   }
+    card.trim();
   return card;
   }
