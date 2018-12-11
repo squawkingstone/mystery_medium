@@ -24,13 +24,14 @@ public class ArduinoSignalReader : MonoBehaviour {
     [SerializeField] string stainID;
     [SerializeField] string paintingID;
 
-	public static SerialPort port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One);      
+	public static SerialPort port;      
     bool updateNeeded;
     string deviceMessage;
     Mutex mutex = new Mutex();
 
     void Start () 
     { 
+        port = new SerialPort("COM3", 9600);
         port.Open();
         updateNeeded = false; 
     }
