@@ -33,6 +33,7 @@ public class ArduinoSignalReader : MonoBehaviour {
     { 
         port = new SerialPort("COM3", 9600);
         port.Open();
+        port.DataReceived += OnReceiveData;
         updateNeeded = false; 
     }
  
@@ -58,18 +59,27 @@ public class ArduinoSignalReader : MonoBehaviour {
         Debug.Log(deviceMessage);
     }
 
-    private IEnumerator ReadFromDevice()
+    // private IEnumerator ReadFromDevice()
+    // {
+    //     string temp;
+    //     while (true)
+    //     {
+    //         temp = port.ReadLine();
+    //         mutex.WaitOne();
+    //         deviceMessage = temp;
+    //         updateNeeded = true;
+    //         mutex.ReleaseMutex();
+    //         yield return null;
+    //     }
+    // }
+
+    private static void OnReceiveData(object sender, SerialDataReceivedEventArgs e)
     {
-        string temp;
-        while (true)
-        {
-            temp = port.ReadLine();
-            mutex.WaitOne();
-            deviceMessage = temp;
-            updateNeeded = true;
-            mutex.ReleaseMutex();
-            yield return null;
-        }
+        SerialPort sp = (SerialPort)sender;
+        const int size = 256;
+        char[] buf = new char[size];
+        sp.Read(buf, 0, size);
+        Debug.Log(buf);
     }
 
 }
