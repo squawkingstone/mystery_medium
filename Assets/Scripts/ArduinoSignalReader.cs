@@ -7,6 +7,17 @@ using System.Threading;
 
 public class ArduinoSignalReader : MonoBehaviour {
 
+    private enum Props
+    {
+        LETTERS = 0,
+        INTIMATES = 1,
+        VERMOUTH = 2,
+        PARIS_GREEN = 3,
+        LAMP = 4,
+        BOTTLES = 5,
+        NUM_PROPS = 6
+    }
+
     [Header("Toggle Props")]
     [SerializeField] ToggleProp letters;
     [SerializeField] ToggleProp intimates;
@@ -30,13 +41,34 @@ public class ArduinoSignalReader : MonoBehaviour {
     Mutex mutex = new Mutex();
     Thread reader;
 
+    ToggleProp[] props;
+    bool[] propStates;
+
     void Start () 
     { 
+        // Port Opening
         port = new SerialPort("COM3", 9600);
         port.Open();
+
+        // Spin up reader thread
         reader = new Thread(new ThreadStart(ReadFromDevice));
         reader.Start();
+
+        // Initialize update variables
         updateNeeded = false; 
+
+        // Initialize prop array
+        props = new ToggleProp[(int)Props.NUM_PROPS];
+        props[(int)Props.LETTERS] = letters;
+        props[(int)Props.INTIMATES] = intimates;
+        props[(int)Props.VERMOUTH] = vermouth;
+        props[(int)Props.PARIS_GREEN] = parisGreen;
+        props[(int)Props.LAMP] = lamp;
+        props[(int)Props.BOTTLES] = bottles;
+
+        // Initialize prop state array
+        propStates = new bool[(int)Props.NUM_PROPS];
+        for (int i = 0; i < (int)Props.NUM_PROPS; i++) { propStates[i] = false; }
     }
  
     void Update()
@@ -58,7 +90,22 @@ public class ArduinoSignalReader : MonoBehaviour {
 
     void UpdateProps()
     {
-        Debug.Log(deviceMessage);
+        List<string> tags = new List<string>(deviceMessage.Split(','));
+        bool[] states = new bool[(int)Props.NUM_PROPS];
+        for (int i = 0; i < (int)Props.NUM_PROPS; i++) { states[i] = false; }
+        // for each connection do the thing
+        UpdateConnection(tags[0], tags[1], states);
+        UpdateConnection(tags[2], tags[3], states);
+        UpdateConnection(tags[4], tags[5], states);
+        // run through the states, and update if the states are different
+        for (int i = 0; i < (int)Props.NUM_PROPS; i++)
+        {
+            if (propStates[i] != states[i])
+            {
+                props[i].SetRevealed(states[i]);
+                propStates[i] = states[i];
+            }
+        }
     }
 
     void ReadFromDevice()
@@ -72,6 +119,32 @@ public class ArduinoSignalReader : MonoBehaviour {
             updateNeeded = true;
             mutex.ReleaseMutex();
         }
+    }
+
+    void UpdateConnection(string s1, string s2, bool[] states)
+    {
+        states[(int)Props.LETTERS] = ConnectionEquals(s1, s2, daughterID, drawerID) 
+            || states[(int)Props.LETTERS];
+
+        states[(int)Props.INTIMATES] = ConnectionEquals(s1, s2, daughterID, gardenerID) 
+            || states[(int)Props.INTIMATES];
+
+        states[(int)Props.VERMOUTH] = ConnectionEquals(s1, s2, glassID, stainID)
+            || states[(int)Props.VERMOUTH];
+
+        states[(int)Props.PARIS_GREEN] = ConnectionEquals(s1, s2, gardenerID, paintingID) 
+            || states[(int)Props.PARIS_GREEN];
+
+        states[(int)Props.LAMP] = ConnectionEquals(s1, s2, victimID, drawerID) 
+            || states[(int)Props.LAMP];
+
+        states[(int)Props.BOTTLES] = ConnectionEquals(s1, s2, paintingID, stainID) 
+            || states[(int)Props.BOTTLES];
+    }
+
+    bool ConnectionEquals(string s1, string s2, string c1, string c2)
+    {
+        return (s1 == c1 && s2 == c2) || (s1 == c2 && s2 == c1);
     }
 
 }

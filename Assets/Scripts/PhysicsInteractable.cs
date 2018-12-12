@@ -12,6 +12,9 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PhysicsInteractable : MonoBehaviour 
 {
+	[SerializeField] Vector3 rightHandRotation;
+	[SerializeField] Vector3 leftHandRotation;
+
 	UnityAction action = null;
 	UnityAction undo = null;
 	Interactable interactable;
@@ -27,10 +30,10 @@ public class PhysicsInteractable : MonoBehaviour
 		// assign some stuff in here
 		action = () => {
 			transform.localRotation = Quaternion.identity;
-			transform.localScale = Vector3.one;
+			//transform.localScale = Vector3.one;
 		};
 		undo = () => {
-			transform.localScale = Vector3.one;
+			//transform.localScale = Vector3.one;
 		};
 	}
 
@@ -45,7 +48,9 @@ public class PhysicsInteractable : MonoBehaviour
             hand.HoverLock(interactable);
             hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
 			if (action != null) action();
-			transform.localRotation = Quaternion.Euler(0f, (hand.gameObject.name == "LeftHand") ? 90f : -90f, (hand.gameObject.name == "LeftHand") ? 45f : -45f);
+			transform.localRotation = (hand.gameObject.name == "LeftHand") 
+				? Quaternion.Euler(leftHandRotation.x, leftHandRotation.y, leftHandRotation.z) 
+				: Quaternion.Euler(rightHandRotation.x, rightHandRotation.y, rightHandRotation.z) ;
 			transform.localPosition = Vector3.forward * 0.1f;
         }
         else if (isGrabEnding)
