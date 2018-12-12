@@ -31,8 +31,9 @@ public class ToggleProp : MonoBehaviour
 			if (interact != null && interact.attachedToHand != null) 
 			{ 
 				interact.attachedToHand.DetachObject(interact.gameObject); 
+			
 			}
-			objs[i].Reset();
+			objs[i].ResetTransform();
 			objs[i].gameObject.SetActive(active);
 		}
 	}

@@ -8,14 +8,14 @@ public class Resettable : MonoBehaviour
 	Quaternion start_rot;
 	Vector3 start_scale;
 
-	void Start()
+	void Awake()
 	{
 		start_pos = transform.position;
 		start_rot = transform.localRotation;
 		start_scale = transform.localScale;
 	}	
 
-	public void Reset()
+	public void ResetTransform()
 	{
 		transform.position = start_pos;
 		transform.localRotation = start_rot;

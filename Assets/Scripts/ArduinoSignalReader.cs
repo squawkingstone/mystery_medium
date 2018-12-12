@@ -92,6 +92,12 @@ public class ArduinoSignalReader : MonoBehaviour {
     {
         List<string> tags = new List<string>(deviceMessage.Split(','));
         //for (int i = 0; i < tags.Count; i++) { Debug.Log(tags[i]); }
+
+        if (tags.Contains(gardenerID) && tags.Contains(daughterID) && 
+            tags.Contains(stainID) && tags.Contains(paintingID))
+        {
+            GetComponent<TriggerEnd>().Trigger();
+        }
         bool[] states = new bool[(int)Props.NUM_PROPS];
         for (int i = 0; i < (int)Props.NUM_PROPS; i++) { states[i] = false; }
         // for each connection do the thing
