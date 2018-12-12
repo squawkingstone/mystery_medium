@@ -21,8 +21,7 @@
  *             Reader/PCD   Uno/101       Mega    
  * Signal      Pin          Pin           Pin     
  * -----------------------------------------------
- * RST/Reset   RST          9             5       
- * SPI SS      SDA(SS)      10            53      
+ * RST/Reset   RST          9             5        
  * SPI MOSI    MOSI         11 / ICSP-4   51      
  * SPI MISO    MISO         12 / ICSP-1   50      
  * SPI SCK     SCK          13 / ICSP-3   52      
