@@ -92,6 +92,7 @@ public class ArduinoSignalReader : MonoBehaviour {
 
     void UpdateProps()
     {
+        Debug.Log(deviceMessage);
         List<string> tags = new List<string>(deviceMessage.Split(','));
         //for (int i = 0; i < tags.Count; i++) { Debug.Log(tags[i]); }
 
