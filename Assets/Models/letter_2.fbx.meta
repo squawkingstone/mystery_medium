@@ -1,50 +1,21 @@
 fileFormatVersion: 2
-guid: 87bded5ffc7d5f348a83fdb6499f2908
+guid: 99e72ce24e8edc44ab7c3a2eae6e128f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: door_base
-    100004: door_jam
-    100006: knob
-    100008: knob_base
     400000: //RootNode
-    400002: door_base
-    400004: door_jam
-    400006: knob
-    400008: knob_base
     2100000: lambert1
-    2100002: Door_Mat
-    2100004: DoorFrame_Mat
-    2100006: doorKnob_Mat
-    2300000: door_base
-    2300002: door_jam
-    2300004: knob
-    2300006: knob_base
-    3300000: door_base
-    3300002: door_jam
-    3300004: knob
-    3300006: knob_base
-    4300000: door_base
-    4300002: door_jam
-    4300004: knob
-    4300006: knob_base
+    2100002: letter2_Mat
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: letter_2
   externalObjects:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: DoorFrame_Mat_Base_Color
-    second: {fileID: 2800000, guid: 983844b9e62f9bc45b9ef2132fe128e9, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Door_Mat_Base_Color
-    second: {fileID: 2800000, guid: 88229a6e96884704f9808f2d14de5a24, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: doorKnob_Mat_Base_Color
-    second: {fileID: 2800000, guid: fa60203f18ac1bf4e946014126d4c83a, type: 3}
+      name: letter2_Mat_basecolor
+    second: {fileID: 2800000, guid: d30daf8c6c7bba041bd54369699ab307, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
