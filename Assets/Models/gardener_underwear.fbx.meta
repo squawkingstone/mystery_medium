@@ -19,10 +19,12 @@ ModelImporter:
     2300002: daughter_underwear
     2300004: gardener_bra
     2300006: gardener_underwear
+    2300008: //RootNode
     3300000: daughter_bra
     3300002: daughter_underwear
     3300004: gardener_bra
     3300006: gardener_underwear
+    3300008: //RootNode
     4300000: daughter_bra
     4300002: gardener_bra
     4300004: daughter_underwear
