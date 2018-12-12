@@ -35,6 +35,8 @@ public class ArduinoSignalReader : MonoBehaviour {
     [SerializeField] string stainID;
     [SerializeField] string paintingID;
 
+    [SerializeField] TriggerEnd end;
+
 	public static SerialPort port;      
     bool updateNeeded;
     string deviceMessage;
@@ -96,7 +98,7 @@ public class ArduinoSignalReader : MonoBehaviour {
         if (tags.Contains(gardenerID) && tags.Contains(daughterID) && 
             tags.Contains(stainID) && tags.Contains(paintingID))
         {
-            GetComponent<TriggerEnd>().Trigger();
+            end.Trigger();
         }
         bool[] states = new bool[(int)Props.NUM_PROPS];
         for (int i = 0; i < (int)Props.NUM_PROPS; i++) { states[i] = false; }
