@@ -1,35 +1,34 @@
 fileFormatVersion: 2
-guid: 85689f797925fbc4a957f63ee0d9680c
+guid: cea7245f04a9151428bc90cf8ed59470
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: daughter_bra
-    100004: daughter_underwear
-    100006: gardener_bra
-    100008: gardener_underwear
-    400000: //RootNode
-    400002: daughter_bra
-    400004: daughter_underwear
-    400006: gardener_bra
-    400008: gardener_underwear
-    2100000: Default_Material
-    2100002: lambert1
-    2300000: daughter_bra
-    2300002: daughter_underwear
-    2300004: gardener_bra
-    2300006: gardener_underwear
-    2300008: //RootNode
-    3300000: daughter_bra
-    3300002: daughter_underwear
-    3300004: gardener_bra
-    3300006: gardener_underwear
-    3300008: //RootNode
-    4300000: daughter_bra
-    4300002: gardener_bra
-    4300004: daughter_underwear
-    4300006: gardener_underwear
-  externalObjects: {}
+    100000: bottle
+    100002: //RootNode
+    100004: cork
+    400000: bottle
+    400002: //RootNode
+    400004: cork
+    2100000: lambert1
+    2100002: vermouth_Mat
+    2100004: cork_mat
+    2300000: bottle
+    2300002: cork
+    3300000: bottle
+    3300002: cork
+    4300000: bottle
+    4300002: cork
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cork_mat_Base_Color
+    second: {fileID: 2800000, guid: 7cad3ecd99aab594f9342d893b02e3ca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vermouth_Mat_Base_Color
+    second: {fileID: 2800000, guid: b207514e790eda24582205bca0d37d12, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
