@@ -26,6 +26,8 @@ ModelImporter:
     400018: right_drawer_bottom
     400020: right_drawer_top
     2100000: lambert1
+    2100002: mainDesk_Mat
+    2100004: deskDrawer_mat
     2300000: desk_body
     2300002: left_drawer_2
     2300004: left_drawer_3
@@ -57,7 +59,17 @@ ModelImporter:
     4300016: left_drawer_bottom
     4300018: right_drawer_bottom
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: deskDrawer_mat_Base_Color
+    second: {fileID: 2800000, guid: bba0c137f7617da4a864eb1512aa7357, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mainDesk_Mat_Base_Color
+    second: {fileID: 2800000, guid: bfc7f2d8dfb10b248b18f1f8175781b1, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -129,7 +141,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

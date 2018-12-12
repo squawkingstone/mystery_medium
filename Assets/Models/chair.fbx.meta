@@ -10,13 +10,25 @@ ModelImporter:
     400002: pCylinder9
     400004: polySurface1
     2100000: lambert1
+    2100002: chair_Mat
+    2100004: chairLegs_Mat
     2300000: pCylinder9
     2300002: polySurface1
     3300000: pCylinder9
     3300002: polySurface1
     4300000: polySurface1
     4300002: pCylinder9
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: chairLegs_Mat_Base_Color
+    second: {fileID: 2800000, guid: 5b8cc6cc7ac61e146b83fa11a3552c1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: chair_Mat_Base_Color
+    second: {fileID: 2800000, guid: 22e081ccfc62f814b911a1a9c19d71b7, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -88,7 +100,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
