@@ -1,35 +1,34 @@
 fileFormatVersion: 2
-guid: 59c089c59fcdc6343b53418ce1cad942
+guid: 035475dc40e16b04bbe509749a62b117
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: daughter_bra
-    100002: //RootNode
-    100004: daughter_underwear
-    100006: gardener_bra
-    100008: gardener_underwear
-    400000: daughter_bra
-    400002: //RootNode
-    400004: daughter_underwear
-    400006: gardener_bra
-    400008: gardener_underwear
-    2100000: Default_Material
-    2100002: lambert1
-    2300000: daughter_bra
-    2300002: daughter_underwear
-    2300004: gardener_bra
-    2300006: gardener_underwear
-    2300008: //RootNode
-    3300000: daughter_bra
-    3300002: daughter_underwear
-    3300004: gardener_bra
-    3300006: gardener_underwear
-    3300008: //RootNode
-    4300000: daughter_bra
-    4300002: gardener_bra
-    4300004: daughter_underwear
-    4300006: gardener_underwear
-  externalObjects: {}
+    100000: drawer
+    100002: painter_table
+    100004: //RootNode
+    400000: drawer
+    400002: painter_table
+    400004: //RootNode
+    2100000: lambert1
+    2100002: sideTable_Mat
+    2100004: drawer_Mat
+    2300000: drawer
+    2300002: painter_table
+    3300000: drawer
+    3300002: painter_table
+    4300000: painter_table
+    4300002: drawer
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: drawer_Mat_Base_Color
+    second: {fileID: 2800000, guid: 408c8d46791ee9a47b8b262b7e4fb1eb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sideTable_Mat_Base_Color
+    second: {fileID: 2800000, guid: 1006bbbea8629024ca4e51662bb63b23, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
