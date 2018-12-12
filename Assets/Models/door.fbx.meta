@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 59c089c59fcdc6343b53418ce1cad942
+guid: f7fbd1fbdd8bf3544ad41fb94689b64f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: daughter_bra
-    100002: //RootNode
-    100004: daughter_underwear
-    100006: gardener_bra
-    100008: gardener_underwear
-    400000: daughter_bra
-    400002: //RootNode
-    400004: daughter_underwear
-    400006: gardener_bra
-    400008: gardener_underwear
-    2100000: Default_Material
-    2100002: lambert1
-    2300000: daughter_bra
-    2300002: daughter_underwear
-    2300004: gardener_bra
-    2300006: gardener_underwear
-    2300008: //RootNode
-    3300000: daughter_bra
-    3300002: daughter_underwear
-    3300004: gardener_bra
-    3300006: gardener_underwear
-    3300008: //RootNode
-    4300000: daughter_bra
-    4300002: gardener_bra
-    4300004: daughter_underwear
-    4300006: gardener_underwear
+    100000: //RootNode
+    100002: door_base
+    100004: door_jam
+    100006: knob
+    100008: knob_base
+    400000: //RootNode
+    400002: door_base
+    400004: door_jam
+    400006: knob
+    400008: knob_base
+    2100000: lambert1
+    2300000: door_base
+    2300002: door_jam
+    2300004: knob
+    2300006: knob_base
+    3300000: door_base
+    3300002: door_jam
+    3300004: knob
+    3300006: knob_base
+    4300000: door_base
+    4300002: door_jam
+    4300004: knob
+    4300006: knob_base
   externalObjects: {}
   materials:
     importMaterials: 1
