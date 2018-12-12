@@ -47,7 +47,7 @@ public class ArduinoSignalReader : MonoBehaviour {
     void Start () 
     { 
         // Port Opening
-        port = new SerialPort("COM3", 9600);
+        port = new SerialPort("COM4", 9600);
         port.Open();
 
         // Spin up reader thread
@@ -91,12 +91,13 @@ public class ArduinoSignalReader : MonoBehaviour {
     void UpdateProps()
     {
         List<string> tags = new List<string>(deviceMessage.Split(','));
+        //for (int i = 0; i < tags.Count; i++) { Debug.Log(tags[i]); }
         bool[] states = new bool[(int)Props.NUM_PROPS];
         for (int i = 0; i < (int)Props.NUM_PROPS; i++) { states[i] = false; }
         // for each connection do the thing
-        UpdateConnection(tags[0], tags[1], states);
-        UpdateConnection(tags[2], tags[3], states);
-        UpdateConnection(tags[4], tags[5], states);
+        UpdateConnection(tags[0], tags[5], states);
+        UpdateConnection(tags[1], tags[3], states);
+        UpdateConnection(tags[2], tags[4], states);
         // run through the states, and update if the states are different
         for (int i = 0; i < (int)Props.NUM_PROPS; i++)
         {

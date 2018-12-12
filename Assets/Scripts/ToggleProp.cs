@@ -1,44 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class ToggleProp : MonoBehaviour 
 {
-	/* I'll figure out how to do it so this works with single objects (toggles
-	 * them on and off), and switching objects.
-	 */
-
-	GameObject obj1 = null;
-	GameObject obj2 = null;
+	[SerializeField] Resettable[] objs;
 
 	void Start () 
 	{
-		Debug.Log(name + " : " + transform.childCount);
-		if (transform.childCount == 2)
-		{
-			obj1 = transform.GetChild(0).gameObject;
-			obj2 = transform.GetChild(1).gameObject;
-			obj1.SetActive(true);
-			obj2.SetActive(false);
-		}
-		else
-		{
-			obj1 = transform.GetChild(0).gameObject;
-			obj1.SetActive(false);
-		}
+		SetActive(objs, false);
 	}
 
-	[ContextMenu("Toggle")]
-	public void Toggle()
-	{
-		bool t = obj1.activeInHierarchy;
-		obj1.SetActive(!t);
-		if (obj2 != null) obj2.SetActive(t);
-	}
+	[ContextMenu("Enable")]
+	void Enable() { SetRevealed(true); }
+	[ContextMenu("Disable")]
+	void Disable() { SetRevealed(false); }
 
 	public void SetRevealed(bool revealed)
 	{
-		obj1.SetActive(!revealed);
-		if (obj2 != null) obj2.SetActive(revealed);
+		SetActive(objs, revealed);
+		Debug.Log(name + " " + ( (revealed) ? "revealed!" : "hidden!" ));
+	}
+
+	public void SetActive(Resettable[] objs, bool active)
+	{
+		for (int i = 0; i < objs.Length; i++)
+		{
+			Interactable interact = objs[i].gameObject.GetComponent<Interactable>();
+			if (interact != null && interact.attachedToHand != null) 
+			{ 
+				interact.attachedToHand.DetachObject(interact.gameObject); 
+			}
+			objs[i].Reset();
+			objs[i].gameObject.SetActive(active);
+		}
 	}
 }
