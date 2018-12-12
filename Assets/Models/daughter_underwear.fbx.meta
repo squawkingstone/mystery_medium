@@ -1,78 +1,32 @@
 fileFormatVersion: 2
-guid: 9501b1f774b6cf64e965c73294b1b358
+guid: 59c089c59fcdc6343b53418ce1cad942
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: polySurface1
-    100004: polySurface10
-    100006: polySurface11
-    100008: polySurface12
-    100010: polySurface13
-    100012: polySurface14
-    100014: polySurface15
-    100016: polySurface16
-    100018: polySurface17
-    100020: polySurface18
-    100022: polySurface2
-    100024: polySurface3
-    100026: polySurface4
-    100028: polySurface5
-    100030: polySurface6
-    100032: polySurface7
-    100034: polySurface8
-    100036: polySurface9
-    400000: //RootNode
-    400002: polySurface1
-    400004: polySurface10
-    400006: polySurface11
-    400008: polySurface12
-    400010: polySurface13
-    400012: polySurface14
-    400014: polySurface15
-    400016: polySurface16
-    400018: polySurface17
-    400020: polySurface18
-    400022: polySurface2
-    400024: polySurface3
-    400026: polySurface4
-    400028: polySurface5
-    400030: polySurface6
-    400032: polySurface7
-    400034: polySurface8
-    400036: polySurface9
-    2100000: lambert1
-    2100002: brokenGlass_Mat
-    2300000: polySurface10
-    2300002: polySurface12
-    2300004: polySurface14
-    2300006: polySurface16
-    2300008: polySurface17
-    2300010: polySurface18
-    2300012: polySurface2
-    2300014: polySurface3
-    2300016: polySurface6
-    2300018: polySurface8
-    3300000: polySurface10
-    3300002: polySurface12
-    3300004: polySurface14
-    3300006: polySurface16
-    3300008: polySurface17
-    3300010: polySurface18
-    3300012: polySurface2
-    3300014: polySurface3
-    3300016: polySurface6
-    3300018: polySurface8
-    4300000: polySurface3
-    4300002: polySurface17
-    4300004: polySurface18
-    4300006: polySurface16
-    4300008: polySurface14
-    4300010: polySurface12
-    4300012: polySurface10
-    4300014: polySurface8
-    4300016: polySurface6
-    4300018: polySurface2
+    100000: daughter_bra
+    100002: //RootNode
+    100004: daughter_underwear
+    100006: gardener_bra
+    100008: gardener_underwear
+    400000: daughter_bra
+    400002: //RootNode
+    400004: daughter_underwear
+    400006: gardener_bra
+    400008: gardener_underwear
+    2100000: Default_Material
+    2100002: lambert1
+    2300000: daughter_bra
+    2300002: daughter_underwear
+    2300004: gardener_bra
+    2300006: gardener_underwear
+    3300000: daughter_bra
+    3300002: daughter_underwear
+    3300004: gardener_bra
+    3300006: gardener_underwear
+    4300000: daughter_bra
+    4300002: gardener_bra
+    4300004: daughter_underwear
+    4300006: gardener_underwear
   externalObjects: {}
   materials:
     importMaterials: 1
