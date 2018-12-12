@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03ee2b45a16db8443a163cca22b18c12
+guid: 035475dc40e16b04bbe509749a62b117
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -10,13 +10,25 @@ ModelImporter:
     400002: painter_table
     400004: //RootNode
     2100000: lambert1
+    2100002: sideTable_Mat
+    2100004: drawer_Mat
     2300000: drawer
     2300002: painter_table
     3300000: drawer
     3300002: painter_table
     4300000: painter_table
     4300002: drawer
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: drawer_Mat_Base_Color
+    second: {fileID: 2800000, guid: 408c8d46791ee9a47b8b262b7e4fb1eb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: sideTable_Mat_Base_Color
+    second: {fileID: 2800000, guid: 1006bbbea8629024ca4e51662bb63b23, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -88,7 +100,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
