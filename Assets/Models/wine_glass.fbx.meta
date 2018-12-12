@@ -4,12 +4,33 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: drank
+    100004: glass
     400000: //RootNode
+    400002: drank
+    400004: glass
     2100000: lambert1
+    2100002: wineGlassLiquid_Mat
+    2100004: wineGlass_Mat
     2300000: //RootNode
+    2300002: drank
+    2300004: glass
     3300000: //RootNode
+    3300002: drank
+    3300004: glass
     4300000: glass
-  externalObjects: {}
+    4300002: drank
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wineGlass_Mat
+    second: {fileID: 2100004, guid: 20092b3c5065f544da86d09513e5c284, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wineGlassLiquid_Mat_Base_Color
+    second: {fileID: 2800000, guid: 6366f9cf9e0ff0f4682a6be76ed3127c, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
