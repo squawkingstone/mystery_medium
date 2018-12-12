@@ -15,19 +15,27 @@ ModelImporter:
     400008: gardener_underwear
     2100000: Default_Material
     2100002: lambert1
+    2100004: gardenerBra_Mat
     2300000: daughter_bra
     2300002: daughter_underwear
     2300004: gardener_bra
     2300006: gardener_underwear
+    2300008: //RootNode
     3300000: daughter_bra
     3300002: daughter_underwear
     3300004: gardener_bra
     3300006: gardener_underwear
+    3300008: //RootNode
     4300000: daughter_bra
     4300002: gardener_bra
     4300004: daughter_underwear
     4300006: gardener_underwear
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: gardenerBra_Mat_Base_Color
+    second: {fileID: 2800000, guid: e6c1d9f6c66d02646a736f914b830158, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
