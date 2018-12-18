@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028522, g: 0.22571523, b: 0.3069229, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028554, g: 0.22571589, b: 0.30692384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 401013930}
+  - component: {fileID: 401013931}
   m_Layer: 0
   m_Name: Painting
   m_TagString: Untagged
@@ -143,6 +144,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &401013931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401013929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4382da2ac01357244b90682cab51d543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mats:
+  - {fileID: 2100000, guid: 120ff6f78460a8146b27a4927e31f51d, type: 2}
+  - {fileID: 2100000, guid: b5d0ebbee88beb84cb1a4c9322695fc9, type: 2}
+  _time: 1
 --- !u!1 &619008344
 GameObject:
   m_ObjectHideFlags: 0
