@@ -5,6 +5,27 @@ using System.IO.Ports;
 using UnityEditor;
 using System.Threading;
 
+/* So this thing is gonna get massively reworked
+
+    This needs to be made wildly more modular, we're gonna do that in 2 parts.
+
+    All the arduino specific stuff (reading from the arduino, parsing the tags)
+    is going to it's own separate component to handle the Arduino stuff independantly.
+    This way, it separates out the Arduino from the game manager layer, allowing me
+    to implement a debug mode by just toggling some things on and off. And on that
+    note
+
+    Separate out the gameplay layer stuff and make it modular as fuck. This way we
+    can have a system where we can slot in new stuff to build out more levels.
+
+    Maybe break this out into a third component MVC style to translate from arduino
+    RFID tags to something more workable in the manager layer, this would again
+    make it way easier to insert a debug mode into this workflow
+
+    Thirdly, build in a debug mode. That way I can test game interaction without
+    being in VR. This will speed up development massively.
+ */
+
 public class ArduinoSignalReader : MonoBehaviour {
 
     private enum Props
