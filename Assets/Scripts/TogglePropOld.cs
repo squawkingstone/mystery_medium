@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-public class ToggleProp : MonoBehaviour 
+public class TogglePropOld : MonoBehaviour 
 {
 	[SerializeField] Resettable[] objs;
 
