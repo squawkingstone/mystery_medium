@@ -10,7 +10,7 @@
 		
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf ToonLighting
+		#pragma surface surf ToonLighting fullforwardshadows
 
 		sampler2D _MainTex;
 		sampler2D _ShadowsTex;
@@ -25,7 +25,7 @@
 		}
 
 		half4 LightingToonLighting (SurfaceOutput s, half3 lightDir, half atten) {
-			half NdotL = max(dot(s.Normal, lightDir), 0);
+			half NdotL = max(dot(lightDir, s.Normal), 0) * saturate(atten * 20);
 			half4 c;
 			c.rgb = s.Albedo * _LightColor0 * (tex2Dlod(_ShadowsTex, float4(NdotL, 0, 0, 0)));
 			c.a = s.Alpha;
