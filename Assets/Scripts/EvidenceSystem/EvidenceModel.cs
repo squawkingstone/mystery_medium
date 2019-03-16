@@ -65,6 +65,7 @@ public class EvidenceModel : MonoBehaviour
 	}
 
 	public ConnectDictObj[] connect_dict;
+	[SerializeField] List<string> win_state;
 
 	void Awake()
 	{
@@ -94,6 +95,19 @@ public class EvidenceModel : MonoBehaviour
 	{
 		_connections = connections;
 
+		List<string> evidence_list = new List<string>();
+		foreach (Connection<string> c in _connections)
+		{
+			evidence_list.Add(c.first);
+			evidence_list.Add(c.second);
+		}
+
+		bool win = true;
+		foreach (string e in win_state)
+		{
+			if (!evidence_list.Contains(e)) { win = false; }
+		}
+	
 		foreach (ModelToggle t in _connection_dictionary.Values) { t.SetActive(false); }
 
 		foreach (Connection<string> c in _connections)
@@ -101,60 +115,6 @@ public class EvidenceModel : MonoBehaviour
 			if (_connection_dictionary.ContainsKey(c)) { _connection_dictionary[c].SetActive(_connections.Contains(c)); }
 		}
 
-		_view.UpdateView(_connection_dictionary.Values);
+		_view.UpdateView(_connection_dictionary.Values, win);
 	}
 }
-
-// [CustomEditor(typeof(EvidenceModel))]
-// public class EvidenceModelEditor : Editor
-// {
-// 	SerializedObject model;
-// 	List<Connection<string>> connects;
-// 	List<string> toggles;
-// 	int size;
-
-// 	void OnEnable()
-// 	{
-// 		model = serializedObject;
-
-// 		connects = model.FindProperty("valid_connections") as System.Object as List<Connection<string>>;
-// 		if (connects == null)
-// 		{
-// 			connects = new List<Connection<string>>();
-// 		}
-
-// 		toggles = model.FindProperty("connections_toggleable") as System.Object as List<string>;
-// 		if (toggles == null)
-// 		{
-// 			toggles = new List<string>();
-// 		}
-// 	}
-
-// 	public override void OnInspectorGUI()
-// 	{
-// 		serializedObject.Update();
-// 		for (int i = 0; i < connects.Count; i++)
-// 		{
-// 			EditorGUILayout.BeginHorizontal();
-
-// 			connects[i].first  = EditorGUILayout.TextField(connects[i].first);
-// 			connects[i].second = EditorGUILayout.TextField(connects[i].second);
-// 			toggles[i] = EditorGUILayout.TextField(toggles[i]);
-
-// 			if (GUILayout.Button("X"))
-// 			{
-// 				connects.RemoveAt(i);
-// 				toggles.RemoveAt(i);
-// 				return;
-// 			}
-
-// 			EditorGUILayout.EndHorizontal();
-// 		}
-		
-// 		if (GUILayout.Button("Add New Connection"))
-// 		{
-// 			connects.Add(new Connection<string>("",""));
-// 			toggles.Add("");
-// 		}
-// 	}
-// }

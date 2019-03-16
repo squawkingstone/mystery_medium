@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GrabbableObjectSnapback : MonoBehaviour 
 {
+	[SerializeField] Collider _collider;
+
 	Vector3 position;
 	Quaternion rotation;
 	OVRGrabbable grabbable;
@@ -23,12 +25,19 @@ public class GrabbableObjectSnapback : MonoBehaviour
 
 	void Update()
 	{
-		if (!grabbable.isGrabbed)
+		if (!grabbable.isGrabbed && !IsAtDefaultPos())
 		{
+			if (_collider.enabled) _collider.enabled = false;
 			rb.velocity = Vector3.zero;
 			transform.position = Vector3.Lerp(transform.position, position, 0.1f);
 			transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.1f);
 		}
+		if (!grabbable.isGrabbed && IsAtDefaultPos() && !_collider.enabled) _collider.enabled = true;
+	}
+
+	bool IsAtDefaultPos()
+	{
+		return (Vector3.Distance(transform.position, position) < 0.0001f);
 	}
 
 }

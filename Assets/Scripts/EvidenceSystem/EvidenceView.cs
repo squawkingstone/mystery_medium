@@ -26,11 +26,18 @@ public class EvidenceView : MonoBehaviour
 		}
 	}
 
-	public void UpdateView(ConnectionDictionary.ValueCollection values)
+	public void UpdateView(ConnectionDictionary.ValueCollection values, bool win)
 	{
 		foreach (ModelToggle t in values)
 		{
 			_toggles[t.toggle].SetActive(t.active);
 		}
+
+		if (win) TriggerWin();
 	}	
+
+	void TriggerWin()
+	{
+		
+	}
 }
