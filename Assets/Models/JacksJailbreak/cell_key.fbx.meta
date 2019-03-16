@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2d0b30543799a6e45b87a993e36efe76
+guid: faf6c1dcc28d0bd4d9092c4734d54413
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,8 +9,10 @@ ModelImporter:
     400000: //RootNode
     400002: key
     400004: number
-    2100000: key_base
-    2100002: key_number_10
+    2100000: lambert4
+    2100002: lambert3
+    2100004: key_base
+    2100006: key_number_10
     2300000: key
     2300002: number
     3300000: key

@@ -1,24 +1,24 @@
 fileFormatVersion: 2
-guid: db809ae0d74fce349a9115919dab6797
+guid: 9fcc5a1f0329a9843aa6acefbc5c17d1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: extra_key_12
-    100004: key_0003_new:transform1
-    100006: key_base
-    100008: transform2
-    100010: transform3
-    100012: typeMesh1
-    100014: typeMesh2
+    100002: key_base
+    100004: typeMesh1
+    100006: typeMesh2
+    100008: extra_key_12
+    100010: key_0003_new:transform1
+    100012: transform2
+    100014: transform3
     400000: //RootNode
-    400002: extra_key_12
-    400004: key_0003_new:transform1
-    400006: key_base
-    400008: transform2
-    400010: transform3
-    400012: typeMesh1
-    400014: typeMesh2
+    400002: key_base
+    400004: typeMesh1
+    400006: typeMesh2
+    400008: extra_key_12
+    400010: key_0003_new:transform1
+    400012: transform2
+    400014: transform3
     2100000: lambert4
     2100002: lambert5
     2100004: lambert3
