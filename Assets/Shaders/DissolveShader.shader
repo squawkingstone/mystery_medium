@@ -4,53 +4,46 @@
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
+		_EmissiveColor ("Emissive Color", Color) = (1,1,1,1)
 
-		_NoiseTex ("Noise Texture", 2D) = "white" {}
-		_Threshold ("Threshold", Range(0,1)) = 0.0
+		_NoiseTexture ("Noise Texture", 2D) = "white" {}
+		_Glow ("Glow", Range(0, 1)) = 0.0
+		_Transparency ("Transparency", Range(0, 1)) = 0.0
+		_TextureBlend ("Texture Blend", Range(0, 1)) = 0.0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
 		LOD 200
 		
-
 		CGPROGRAM
-		// Physically based Standard lighting model, and enable shadows on all light types
 		#pragma surface surf Standard fullforwardshadows
 
-		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
-
-		sampler2D _MainTex;
 
 		struct Input {
 			float2 uv_MainTex;
 		};
 
+		fixed4 _Color;
+		sampler2D _MainTex;
 		half _Glossiness;
 		half _Metallic;
-		fixed4 _Color;
+		fixed4 _EmissiveColor;
 
-		sampler2D _NoiseTex;
-		float _Threshold;
-
-		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-		// #pragma instancing_options assumeuniformscaling
-		UNITY_INSTANCING_BUFFER_START(Props)
-			// put more per-instance properties here
-		UNITY_INSTANCING_BUFFER_END(Props)
+		sampler2D _NoiseTexture;
+		float _Glow;
+		float _Transparency;
+		float _TextureBlend;
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-			float t = tex2D(_NoiseTex, IN.uv_MainTex).r;
-			clip(t - _Threshold);
-			o.Albedo = c.rgb;
-			if (t - _Threshold < 0.05) o.Emission = _Color.rbg;
-			// Metallic and smoothness come from slider variables
+			fixed4 n = tex2D (_NoiseTexture, IN.uv_MainTex).r;
+			o.Albedo = lerp(_EmissiveColor.rgb, c.rgb, _TextureBlend);
+			o.Emission = lerp(float3(0.0, 0.0, 0.0), _EmissiveColor.rgb, _Glow);
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
-			o.Alpha = c.a;
+			clip(n - _Transparency);
 		}
 		ENDCG
 	}

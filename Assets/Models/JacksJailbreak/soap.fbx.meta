@@ -17,7 +17,17 @@ ModelImporter:
     3300002: soap_top
     4300000: soap_bottom
     4300002: soap_top
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soap_1
+    second: {fileID: 2100000, guid: 633cf4a432eb32a45a59c49dde4b8cea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: soap_2
+    second: {fileID: 2100000, guid: d683a113f18ddb54b817eeb4f25d975f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

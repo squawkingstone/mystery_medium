@@ -1,22 +1,14 @@
 fileFormatVersion: 2
-guid: 9ac9c8e82d7b51f41820e2335dafaeef
+guid: 6dfca2af3c1e87a4ba7f2da650a6d777
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: box_base
-    100004: box_lid
     400000: //RootNode
-    400002: box_base
-    400004: box_lid
-    2100000: lambert3
-    2100002: lambert2
-    2300000: box_base
-    2300002: box_lid
-    3300000: box_base
-    3300002: box_lid
-    4300000: box_base
-    4300002: box_lid
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Sphere
   externalObjects: {}
   materials:
     importMaterials: 1

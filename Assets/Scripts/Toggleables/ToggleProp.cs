@@ -51,4 +51,10 @@ public class ToggleProp : Toggleable
 
 		this.active = active;
     }
+
+	[ContextMenu("Toggle On")]
+	void ToggleOn() { SetActive(true); }
+
+	[ContextMenu("Toggle Off")]
+	void ToggleOff() { SetActive(false); }
 }
