@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -996,6 +996,7 @@ GameObject:
   - component: {fileID: 897954833}
   - component: {fileID: 897954835}
   - component: {fileID: 897954834}
+  - component: {fileID: 897954836}
   m_Layer: 0
   m_Name: Evidence
   m_TagString: Untagged
@@ -1077,6 +1078,31 @@ MonoBehaviour:
   - joseph
   - can
   - soap
+--- !u!114 &897954836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897954832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7cfd540cf6ec54fb90fd0759181b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connected_spots:
+  - first: 0
+    second: 1
+  evidenceID:
+  - can
+  - file
+  - nothing
+  cardID:
+  - 57190926
+  - e979b200
+  - 00000000
+  topRow: COM5
+  bottomRow: COM4
+  model: {fileID: 897954835}
 --- !u!1 &937685886
 GameObject:
   m_ObjectHideFlags: 0
