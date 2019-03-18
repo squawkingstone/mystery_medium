@@ -11,7 +11,6 @@
     {
         Tags { "RenderType"="Transparent"  "Queue"="Transparent" }
         LOD 100
-        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
@@ -31,12 +30,13 @@
 
             struct v2f
             {
-                float4 vertex : SV_POSITION;
                 float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
             };
 
             fixed4 _Color;
             sampler2D _NoiseTexture;
+            float4 _NoiseTexture_ST;
             float _ScrollSpeedX;
             float _ScrollSpeedY;
 
@@ -44,14 +44,14 @@
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _NoiseTexture);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 c = _Color * tex2D(_NoiseTexture, i.uv);
-                return _Color;
+                fixed4 c = tex2D(_NoiseTexture, i.uv + (float2(_ScrollSpeedX, _ScrollSpeedY) * _Time.y));
+                return c;
             }
             ENDCG
         }
