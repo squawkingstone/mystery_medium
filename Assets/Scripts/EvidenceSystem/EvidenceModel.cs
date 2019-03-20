@@ -67,9 +67,12 @@ public class EvidenceModel : MonoBehaviour
 	public ConnectDictObj[] connect_dict;
 	[SerializeField] List<string> win_state;
 
+	AudioSource buzzzzzzzz;
+
 	void Awake()
 	{
 		_view = GetComponent<EvidenceView>();
+		buzzzzzzzz = GetComponent<AudioSource>();
 	}
 
 	void Start()
@@ -106,6 +109,12 @@ public class EvidenceModel : MonoBehaviour
 		foreach (string e in win_state)
 		{
 			if (!evidence_list.Contains(e)) { win = false; }
+		}
+
+		if (evidence_list.Contains("SOLVED") && !win)
+		{
+			// trigger the you fucked up sound
+			buzzzzzzzz.Play();
 		}
 	
 		foreach (ModelToggle t in _connection_dictionary.Values) { t.SetActive(false); }

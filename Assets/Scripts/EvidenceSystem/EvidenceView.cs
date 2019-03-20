@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using ConnectionDictionary = System.Collections.Generic.Dictionary<Connection<string>, ModelToggle>;
 
@@ -14,6 +15,8 @@ public class EvidenceView : MonoBehaviour
 	}
 
 	[SerializeField] ViewToggle[] view_toggles;
+
+	[SerializeField] Image win_image;
 
 	Dictionary<string, Toggleable> _toggles;
 
@@ -36,8 +39,19 @@ public class EvidenceView : MonoBehaviour
 		if (win) TriggerWin();
 	}	
 
+	[ContextMenu("Trigger Win")]
 	void TriggerWin()
 	{
-		
+		StartCoroutine(WinImageCoroutine());
+	}
+
+	IEnumerator WinImageCoroutine()
+	{
+		for (float t = 0; t < 3f; t += Time.deltaTime)
+		{
+			win_image.color = Color.Lerp(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), t / 3f);
+			yield return null;
+		}
+		win_image.color = new Color(1f, 1f, 1f, 1f);
 	}
 }
