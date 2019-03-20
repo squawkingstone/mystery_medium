@@ -27,6 +27,7 @@ public class ToggleProp : Toggleable
 
 	void Start()
 	{
+
 		prop_transforms = new PropTransform[objects.Length];
 		materials = new List<Display>();
 		for (int i = 0; i < objects.Length; i++)
@@ -54,6 +55,7 @@ public class ToggleProp : Toggleable
 		}
 		sound = sound_object.GetComponent<AudioSource>();
 		SetMatProperty("_Revealed", 0f);
+		toggle_active = false;
 	}
 	
 	public override void SetActive(bool active)
@@ -62,10 +64,12 @@ public class ToggleProp : Toggleable
 		{
 			sound.Play();
 			Activate();
+			toggle_active = true;
 		}
 		else
 		{
 			Deactivate();
+			toggle_active = false;
 		}
 	}
 

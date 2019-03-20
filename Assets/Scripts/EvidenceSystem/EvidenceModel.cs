@@ -103,6 +103,9 @@ public class EvidenceModel : MonoBehaviour
 		{
 			evidence_list.Add(c.first);
 			evidence_list.Add(c.second);
+
+			//Debug.Log(c.first);
+			//Debug.Log(c.second);
 		}
 
 		bool win = true;

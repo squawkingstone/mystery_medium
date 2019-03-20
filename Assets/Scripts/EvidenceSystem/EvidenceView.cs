@@ -31,9 +31,10 @@ public class EvidenceView : MonoBehaviour
 
 	public void UpdateView(ConnectionDictionary.ValueCollection values, bool win)
 	{
+		Debug.Log("WIN: " + win);
 		foreach (ModelToggle t in values)
 		{
-			_toggles[t.toggle].SetActive(t.active);
+			if (t.active != _toggles[t.toggle].toggle_active) _toggles[t.toggle].SetActive(t.active);
 		}
 
 		if (win) TriggerWin();
