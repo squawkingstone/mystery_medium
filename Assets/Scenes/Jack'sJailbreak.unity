@@ -1416,14 +1416,28 @@ MonoBehaviour:
   connected_spots:
   - first: 0
     second: 1
+  - first: 0
+    second: 1
+  - first: 0
+    second: 1
   evidenceID:
-  - can
+  - jack
+  - SOLVED
+  - time_sheet
+  - soap
   - file
-  - nothing
+  - nurse
+  - joseph
+  - can
   cardID:
-  - 57190926
-  - e979b200
-  - 00000000
+  - 868f127e
+  - 1657f8cb
+  - 613b5c09
+  - 6156c109
+  - 4577a82b
+  - b6b6fa9d
+  - 763b22cc
+  - d67a599e
   topRow: COM5
   bottomRow: COM4
   model: {fileID: 897954835}
